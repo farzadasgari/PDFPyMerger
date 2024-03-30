@@ -1,23 +1,39 @@
-from PyQt6.QtCore import *
-from PyQt6.QtGui import *
-from PyQt6.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 import sys
-from PyQt6.uic import loadUiType
+from PyQt5.uic import loadUiType, loadUi
 
-ui, _ = loadUiType('gui.ui')
+gui, _ = loadUiType('gui.ui')
+infoui, _ = loadUiType('info.ui')
 
 
-class Main(QMainWindow, ui):
+def info_btn_clicked():
+    info_dialog = Info()
+    info_dialog.exec_()
+
+
+class Merger(QMainWindow, gui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.actions_triggered()
+
+    def actions_triggered(self):
+        self.actionInfo.triggered.connect(info_btn_clicked)
+
+
+class Info(QDialog):
+    def __init__(self):
+        super(Info, self).__init__()
+        loadUi('info.ui', self)
 
 
 def main():
     app = QApplication(sys.argv)
-    window = Main()
+    window = Merger()
     window.show()
-    app.exec()
+    app.exec_()
 
 
 if __name__ == '__main__':
