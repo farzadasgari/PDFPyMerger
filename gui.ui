@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>PDFPyMerger</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Icons/Logo.png</normaloff>Icons/Logo.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
