@@ -21,6 +21,7 @@ class Merger(QMainWindow, gui):
 
     def buttons_clicked(self):
         self.addPDFButton.clicked.connect(self.get_files)
+        self.deletePDFButton.clicked.connect(self.delete_file)
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
@@ -34,6 +35,10 @@ class Merger(QMainWindow, gui):
     def append_files(self, files):
         for file in files:
             QListWidgetItem(file, self.PDFList)
+
+    def delete_file(self):
+        file = self.PDFList.currentRow()
+        self.PDFList.takeItem(file)
 
 
 class Info(QDialog):
