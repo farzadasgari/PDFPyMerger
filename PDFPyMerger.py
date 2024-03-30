@@ -20,16 +20,20 @@ class Merger(QMainWindow, gui):
         self.buttons_clicked()
 
     def buttons_clicked(self):
-        self.addPDFButton.clicked.connect(self.getfiles)
+        self.addPDFButton.clicked.connect(self.get_files)
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
 
-    def getfiles(self):
+    def get_files(self):
         filedialog = QFileDialog()
         filedialog.setFileMode(QFileDialog.ExistingFiles)
         files = filedialog.getOpenFileNames(self, "Open PDF Files", "", "PDF Files (*.pdf)")
-        return files[0]
+        self.append_files(files[0])
+
+    def append_files(self, files):
+        for file in files:
+            QListWidgetItem(file, self.PDFList)
 
 
 class Info(QDialog):

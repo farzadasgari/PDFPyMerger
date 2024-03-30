@@ -50,3 +50,6 @@ fabric.properties
 !.idea/runConfigurations
 
 venv
+
+# Test PDF Files
+*.pdf
