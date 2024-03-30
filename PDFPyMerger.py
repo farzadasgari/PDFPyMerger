@@ -5,7 +5,6 @@ import sys
 from PyQt5.uic import loadUiType, loadUi
 
 gui, _ = loadUiType('gui.ui')
-infoui, _ = loadUiType('info.ui')
 
 
 def info_btn_clicked():
