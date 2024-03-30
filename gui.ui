@@ -49,11 +49,7 @@
        <item>
         <layout class="QVBoxLayout" name="listLayout">
          <item>
-          <widget class="QListView" name="listView">
-           <property name="statusTip">
-            <string>PDF Files List to Merge</string>
-           </property>
-          </widget>
+          <widget class="QListWidget" name="PDFList"/>
          </item>
         </layout>
        </item>
