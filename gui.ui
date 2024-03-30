@@ -156,6 +156,12 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="passwordLabel">
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="statusTip">
           <string>Set Password to Protect You Merged PDF (Optional)</string>
          </property>
@@ -168,6 +174,11 @@
         <layout class="QHBoxLayout" name="horizontalLayoutPassword">
          <item>
           <widget class="QLineEdit" name="passwordInput">
+           <property name="font">
+            <font>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
            <property name="focusPolicy">
             <enum>Qt::StrongFocus</enum>
            </property>
@@ -183,12 +194,12 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="seePasswordButton">
+          <widget class="QPushButton" name="showPasswordButton">
            <property name="toolTip">
-            <string>See Password</string>
+            <string>Show Password</string>
            </property>
            <property name="statusTip">
-            <string>See Password</string>
+            <string>Show Password</string>
            </property>
            <property name="text">
             <string/>
@@ -297,7 +308,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>seePasswordButton</sender>
+   <sender>showPasswordButton</sender>
    <signal>clicked()</signal>
    <receiver>hidePasswordButton</receiver>
    <slot>show()</slot>
@@ -315,7 +326,7 @@
   <connection>
    <sender>hidePasswordButton</sender>
    <signal>clicked()</signal>
-   <receiver>seePasswordButton</receiver>
+   <receiver>showPasswordButton</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -345,9 +356,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>seePasswordButton</sender>
+   <sender>showPasswordButton</sender>
    <signal>clicked()</signal>
-   <receiver>seePasswordButton</receiver>
+   <receiver>showPasswordButton</receiver>
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
