@@ -17,9 +17,16 @@ class Merger(QMainWindow, gui):
         QMainWindow.__init__(self)
         self.setupUi(self)
         self.actions_triggered()
+        self.buttons_clicked()
+
+    def buttons_clicked(self):
+        self.addPDFButton.clicked.connect(self.getfile)
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
+
+    def getfile(self):
+        file = QFileDialog.getOpenFileName(self, 'Open file', 'c:\\', "PDF files (*.pdf)")
 
 
 class Info(QDialog):
