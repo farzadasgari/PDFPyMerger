@@ -50,7 +50,7 @@ Contributions are welcome! Please feel free to fork the repository and submit pu
 
 - Thank you to the PyQt5 team for providing an excellent GUI framework.
 
-- Special thanks to Mojtaba Karimi and Parvaneh Yaghoubi for their contributions and collaboration on this project.
+- Special thanks to Mojtaba Karimi, Parvaneh Yaghoubi, and Hiva Yarandi for their contributions and collaboration on this project.
 
 ## Contact
 
