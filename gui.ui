@@ -39,6 +39,12 @@
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QFrame" name="leftFrame">
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -131,7 +137,7 @@
      <widget class="QFrame" name="rightFrame">
       <property name="minimumSize">
        <size>
-        <width>500</width>
+        <width>400</width>
         <height>0</height>
        </size>
       </property>
