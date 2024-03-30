@@ -35,7 +35,7 @@
    <iconset>
     <normaloff>Icons/Logo.png</normaloff>Icons/Logo.png</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QFrame" name="leftFrame">
@@ -72,6 +72,9 @@
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
+           <property name="toolTip">
+            <string>Add  PDF File To Merge List</string>
+           </property>
            <property name="statusTip">
             <string>Add  PDF File To Merge List</string>
            </property>
@@ -100,6 +103,9 @@
            </property>
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="toolTip">
+            <string>Delete PDF File From Merge List</string>
            </property>
            <property name="statusTip">
             <string>Delete PDF File From Merge List</string>
@@ -147,6 +153,112 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="passwordLabel">
+         <property name="statusTip">
+          <string>Set Password to Protect You Merged PDF (Optional)</string>
+         </property>
+         <property name="text">
+          <string>Set Password (Optional):</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayoutPassword">
+         <item>
+          <widget class="QLineEdit" name="passwordInput">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
+           <property name="toolTip">
+            <string>Set Password to Protect You Merged PDF (Optional)</string>
+           </property>
+           <property name="statusTip">
+            <string>Set Password to Protect You Merged PDF (Optional)</string>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="seePasswordButton">
+           <property name="toolTip">
+            <string>See Password</string>
+           </property>
+           <property name="statusTip">
+            <string>See Password</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>Icons/eye.png</normaloff>Icons/eye.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="hidePasswordButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="toolTip">
+            <string>Hide Password</string>
+           </property>
+           <property name="statusTip">
+            <string>Hide Password</string>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>Icons/eyeslash.png</normaloff>Icons/eyeslash.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacerRightFrame">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -183,5 +295,70 @@
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>seePasswordButton</sender>
+   <signal>clicked()</signal>
+   <receiver>hidePasswordButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>737</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>775</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hidePasswordButton</sender>
+   <signal>clicked()</signal>
+   <receiver>seePasswordButton</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>775</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>737</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hidePasswordButton</sender>
+   <signal>clicked()</signal>
+   <receiver>hidePasswordButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>775</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>775</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>seePasswordButton</sender>
+   <signal>clicked()</signal>
+   <receiver>seePasswordButton</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>737</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>737</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

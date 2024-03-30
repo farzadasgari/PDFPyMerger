@@ -16,6 +16,7 @@ class Merger(QMainWindow, gui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.hidePasswordButton.hide()
         self.actions_triggered()
         self.buttons_clicked()
 
