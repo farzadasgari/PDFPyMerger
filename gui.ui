@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="leftFrame">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -27,7 +27,11 @@
        <item>
         <layout class="QVBoxLayout" name="listLayout">
          <item>
-          <widget class="QListView" name="listView"/>
+          <widget class="QListView" name="listView">
+           <property name="statusTip">
+            <string>PDF Files List to Merge</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -37,6 +41,9 @@
           <widget class="QPushButton" name="addPDFButton">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="statusTip">
+            <string>Add  PDF File To Merge List</string>
            </property>
            <property name="text">
             <string>Add</string>
@@ -57,6 +64,9 @@
           <widget class="QPushButton" name="deletePDFButton">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="statusTip">
+            <string>Delete PDF File From Merge List</string>
            </property>
            <property name="text">
             <string>Delete</string>
@@ -88,7 +98,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="frame_2">
+     <widget class="QFrame" name="rightFrame">
       <property name="minimumSize">
        <size>
         <width>500</width>
