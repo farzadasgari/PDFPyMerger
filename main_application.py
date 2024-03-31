@@ -1,3 +1,21 @@
+'''
+PDF Merger:
+
+This Python application designed to merge multiple PDF files into a single document with 
+the ability to protect the merged PDF file with a password.
+
+Required libraries:
+
+PyQt5 = PyQt is a Python binding of the cross-platform GUI toolkit Qt, implemented as a Python plug-in.
+
+Pillow = The Python Imaging Library adds image processing capabilities to your Python interpreter.
+
+PyPDF2 = PyPDF2 is a free and open source pure-python PDF library capable of splitting, merging, cropping, 
+ and transforming the pages of PDF files.
+
+img2pdf = Convert images to PDF via direct JPEG inclusion.
+
+'''
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.uic import loadUiType
 from file_handling import get_files, delete_file
@@ -10,6 +28,9 @@ gui, _ = loadUiType("gui.ui")
 
 
 class PyPDFMerger(QMainWindow, gui):
+    '''
+    The application environment is designed with this class
+    '''
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
