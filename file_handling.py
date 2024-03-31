@@ -13,3 +13,8 @@ def get_files(list_widget):
 def append_files(files, list_widget):
     for file in files:
         QListWidgetItem(file, list_widget)
+
+
+def delete_file(list_widget):
+    file = list_widget.currentRow()
+    list_widget.takeItem(file)
