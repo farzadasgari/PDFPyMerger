@@ -5,6 +5,7 @@ import sys
 from PyQt5.uic import loadUiType, loadUi
 from time import sleep
 from PyPDF2 import PdfMerger, PdfWriter, PdfReader
+from file_handling import get_files
 
 gui, _ = loadUiType("gui.ui")
 
@@ -24,7 +25,7 @@ class Merger(QMainWindow, gui):
         self.buttons_clicked()
 
     def buttons_clicked(self):
-        self.addPDFButton.clicked.connect(self.get_files)
+        self.addPDFButton.clicked.connect(lambda: get_files(self.PDFList))
         self.deletePDFButton.clicked.connect(self.delete_file)
         self.hidePasswordButton.clicked.connect(self.hide_or_show_password)
         self.showPasswordButton.clicked.connect(self.hide_or_show_password)
@@ -34,18 +35,6 @@ class Merger(QMainWindow, gui):
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
-
-    def get_files(self):
-        filedialog = QFileDialog()
-        filedialog.setFileMode(QFileDialog.ExistingFiles)
-        files = filedialog.getOpenFileNames(
-            self, "Open PDF Files", "", "PDF Files (*.pdf);;Images (*.png *.jpg *.jpeg);; All Files(*)"
-        )
-        self.append_files(files[0])
-
-    def append_files(self, files):
-        for file in files:
-            QListWidgetItem(file, self.PDFList)
 
     def delete_file(self):
         file = self.PDFList.currentRow()
