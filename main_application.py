@@ -24,12 +24,13 @@ from encrypt import hide_or_show_password
 from exec import merger
 from info_dialog import info_btn_clicked
 
+# Load Graphical User Interface
 gui, _ = loadUiType("gui.ui")
 
 
 class PyPDFMerger(QMainWindow, gui):
     '''
-    The application environment is designed with this class
+    The application User Interface (UI) and widgets functionalities
     '''
     def __init__(self):
         QMainWindow.__init__(self)
