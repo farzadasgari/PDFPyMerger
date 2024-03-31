@@ -1,5 +1,3 @@
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType, loadUi
@@ -7,6 +5,7 @@ from time import sleep
 from PyPDF2 import PdfMerger, PdfWriter, PdfReader
 from file_handling import get_files, delete_file
 from files_order import move_file_up, move_file_down
+from encrypt import hide_or_show_password
 
 gui, _ = loadUiType("gui.ui")
 
@@ -28,20 +27,14 @@ class Merger(QMainWindow, gui):
     def buttons_clicked(self):
         self.addPDFButton.clicked.connect(lambda: get_files(self.PDFList))
         self.deletePDFButton.clicked.connect(lambda: delete_file(self.PDFList))
-        self.hidePasswordButton.clicked.connect(self.hide_or_show_password)
-        self.showPasswordButton.clicked.connect(self.hide_or_show_password)
+        self.hidePasswordButton.clicked.connect(lambda: hide_or_show_password(self.passwordInput))
+        self.showPasswordButton.clicked.connect(lambda: hide_or_show_password(self.passwordInput))
         self.upPDFButton.clicked.connect(lambda: move_file_up(self.PDFList))
         self.downPDFButton.clicked.connect(lambda: move_file_down(self.PDFList))
         self.executeButton.clicked.connect(self.execute)
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
-
-    def hide_or_show_password(self) -> None:
-        if self.passwordInput.echoMode() == QLineEdit.EchoMode.Password:
-            self.passwordInput.setEchoMode(QLineEdit.EchoMode.Normal)
-        else:
-            self.passwordInput.setEchoMode(QLineEdit.EchoMode.Password)
 
     def execute(self):
         # Execute the Actions
