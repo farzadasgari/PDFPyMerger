@@ -39,7 +39,7 @@ class Merger(QMainWindow, gui):
         filedialog = QFileDialog()
         filedialog.setFileMode(QFileDialog.ExistingFiles)
         files = filedialog.getOpenFileNames(
-            self, "Open PDF Files", "", "PDF Files (*.pdf)"
+            self, "Open PDF Files", "", "PDF Files (*.pdf);;Images (*.png *.jpg *.jpeg)"
         )
         self.append_files(files[0])
 
