@@ -35,14 +35,6 @@ class Merger(QMainWindow, gui):
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
 
-    def save_merged_file(self):
-        filedialog = QFileDialog()
-        filedialog.setFileMode(QFileDialog.ExistingFiles)
-        filepath, _ = QFileDialog.getSaveFileName(self, "Save Merged File",
-                                                  "PDFPyMerger.pdf"
-                                                  , "PDF Files (*.pdf)")
-        return filepath
-
 
 class Info(QDialog):
     def __init__(self):
