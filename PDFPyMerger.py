@@ -19,12 +19,15 @@ class Merger(QMainWindow, gui):
         self.hidePasswordButton.hide()
         self.actions_triggered()
         self.buttons_clicked()
+        self.drag_files()
 
     def buttons_clicked(self):
         self.addPDFButton.clicked.connect(self.get_files)
         self.deletePDFButton.clicked.connect(self.delete_file)
         self.hidePasswordButton.clicked.connect(self.hide_or_show_password)
         self.showPasswordButton.clicked.connect(self.hide_or_show_password)
+        self.upPDFButton.clicked.connect(self.move_file_up)
+        self.downPDFButton.clicked.connect(self.move_file_down)
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
@@ -48,6 +51,20 @@ class Merger(QMainWindow, gui):
             self.passwordInput.setEchoMode(QLineEdit.EchoMode.Normal)
         else:
             self.passwordInput.setEchoMode(QLineEdit.EchoMode.Password)
+
+    def move_file_up(self):
+        filerow = self.PDFList.currentRow()
+        file = self.PDFList.takeItem(filerow)
+        self.PDFList.insertItem(filerow - 1, file)
+        target = filerow if filerow == 0 else filerow - 1
+        self.PDFList.setCurrentRow(target)
+
+    def move_file_down(self):
+        filerow = self.PDFList.currentRow()
+        file = self.PDFList.takeItem(filerow)
+        self.PDFList.insertItem(filerow + 1, file)
+        target = filerow if filerow == self.PDFList.count() - 1 else filerow + 1
+        self.PDFList.setCurrentRow(target)
 
 
 class Info(QDialog):
