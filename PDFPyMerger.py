@@ -4,9 +4,10 @@ import sys
 
 
 def main():
-    '''
-    Execute PDFPyMerger
-    '''
+    """
+    Entry point of the PDFPyMerger application.
+    Initializes the PyQt application, creates the main window, and starts the event loop.
+    """
     app = QApplication(sys.argv)
     window = PyPDFMerger()
     window.show()
