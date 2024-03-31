@@ -6,6 +6,7 @@ from PyQt5.uic import loadUiType, loadUi
 from time import sleep
 from PyPDF2 import PdfMerger, PdfWriter, PdfReader
 from file_handling import get_files
+from files_order import move_file_up, move_file_down
 
 gui, _ = loadUiType("gui.ui")
 
@@ -29,8 +30,8 @@ class Merger(QMainWindow, gui):
         self.deletePDFButton.clicked.connect(self.delete_file)
         self.hidePasswordButton.clicked.connect(self.hide_or_show_password)
         self.showPasswordButton.clicked.connect(self.hide_or_show_password)
-        self.upPDFButton.clicked.connect(self.move_file_up)
-        self.downPDFButton.clicked.connect(self.move_file_down)
+        self.upPDFButton.clicked.connect(lambda: move_file_up(self.PDFList))
+        self.downPDFButton.clicked.connect(lambda: move_file_down(self.PDFList))
         self.executeButton.clicked.connect(self.execute)
 
     def actions_triggered(self):
@@ -45,20 +46,6 @@ class Merger(QMainWindow, gui):
             self.passwordInput.setEchoMode(QLineEdit.EchoMode.Normal)
         else:
             self.passwordInput.setEchoMode(QLineEdit.EchoMode.Password)
-
-    def move_file_up(self):
-        filerow = self.PDFList.currentRow()
-        file = self.PDFList.takeItem(filerow)
-        self.PDFList.insertItem(filerow - 1, file)
-        target = filerow if filerow == 0 else filerow - 1
-        self.PDFList.setCurrentRow(target)
-
-    def move_file_down(self):
-        filerow = self.PDFList.currentRow()
-        file = self.PDFList.takeItem(filerow)
-        self.PDFList.insertItem(filerow + 1, file)
-        target = filerow if filerow == self.PDFList.count() - 1 else filerow + 1
-        self.PDFList.setCurrentRow(target)
 
     def execute(self):
         # Execute the Actions
