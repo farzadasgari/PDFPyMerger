@@ -69,7 +69,10 @@ class Merger(QMainWindow, gui):
         self.PDFList.setCurrentRow(target)
 
     def execute(self):
-        # Execute the Actions
+        files = []
+        for file in range(self.PDFList.count()):
+            files.append(self.PDFList.item(file).text())
+
         for i in range(101):
             sleep(0.005)
             self.progressBar.setValue(i)
