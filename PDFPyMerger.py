@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType, loadUi
+from time import sleep
 
 gui, _ = loadUiType('gui.ui')
 
@@ -28,6 +29,7 @@ class Merger(QMainWindow, gui):
         self.showPasswordButton.clicked.connect(self.hide_or_show_password)
         self.upPDFButton.clicked.connect(self.move_file_up)
         self.downPDFButton.clicked.connect(self.move_file_down)
+        self.executeButton.clicked.connect(self.execute)
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
@@ -65,6 +67,12 @@ class Merger(QMainWindow, gui):
         self.PDFList.insertItem(filerow + 1, file)
         target = filerow if filerow == self.PDFList.count() - 1 else filerow + 1
         self.PDFList.setCurrentRow(target)
+
+    def execute(self):
+        # Execute the Actions
+        for i in range(101):
+            sleep(0.005)
+            self.progressBar.setValue(i)
 
 
 class Info(QDialog):
