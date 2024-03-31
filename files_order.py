@@ -1,7 +1,10 @@
 def move_file_up(list_widget):
-    '''
-    This function is used to change the arrangement of the file upwards. 
-    '''
+    """
+    Move the selected file upwards in the list widget.
+
+    Parameters:
+        list_widget (QListWidget): The QListWidget containing the files.
+    """
     filerow = list_widget.currentRow()
     file = list_widget.takeItem(filerow)
     list_widget.insertItem(filerow - 1, file)
@@ -10,9 +13,12 @@ def move_file_up(list_widget):
 
 
 def move_file_down(list_widget):
-    '''
-    This function is used to change the arrangement of the file downwards. 
-    '''
+    """
+    Move the selected file downwards in the list widget.
+
+    Parameters:
+        list_widget (QListWidget): The QListWidget containing the files.
+    """
     filerow = list_widget.currentRow()
     file = list_widget.takeItem(filerow)
     list_widget.insertItem(filerow + 1, file)
