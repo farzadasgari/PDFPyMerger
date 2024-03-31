@@ -69,9 +69,16 @@ class Merger(QMainWindow, gui):
         self.PDFList.setCurrentRow(target)
 
     def execute(self):
+        # Get All PDF Files of List
         files = []
         for file in range(self.PDFList.count()):
             files.append(self.PDFList.item(file).text())
+
+        # Get Password
+        password = self.passwordInput.text()
+        if len(password) != 0:
+            # Set the Password
+            pass
 
         for i in range(101):
             sleep(0.005)
