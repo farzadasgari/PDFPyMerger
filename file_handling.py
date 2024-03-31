@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QFileDialog, QListWidgetItem
 def get_files(list_widget):
     '''
     This function opens a dialog that allows the users to select their files, 
-    so these files can be added to the left list of the program.
+    so these files can be added to the selected files list.
     '''
     filedialog = QFileDialog()
     filedialog.setFileMode(QFileDialog.ExistingFiles)
