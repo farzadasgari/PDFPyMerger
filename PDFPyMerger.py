@@ -5,13 +5,9 @@ from file_handling import get_files, delete_file
 from files_order import move_file_up, move_file_down
 from encrypt import hide_or_show_password
 from exec import merger
+from info_dialog import info_btn_clicked
 
 gui, _ = loadUiType("gui.ui")
-
-
-def info_btn_clicked():
-    info_dialog = Info()
-    info_dialog.exec_()
 
 
 class Merger(QMainWindow, gui):
@@ -34,12 +30,6 @@ class Merger(QMainWindow, gui):
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
-
-
-class Info(QDialog):
-    def __init__(self):
-        super(Info, self).__init__()
-        loadUi("info.ui", self)
 
 
 def main():
