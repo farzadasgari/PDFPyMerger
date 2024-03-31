@@ -10,6 +10,7 @@ PDFPyMerger is a Python application designed to merge multiple PDF files into a 
 - **Customizable Merge Options:** Users can select and arrange PDF files in the desired order before merging.
 - **Cross-Platform Compatibility:** PDFPyMerger is built using Python, ensuring compatibility with Windows, macOS, and Linux operating systems.
 
+
 ## Installation
 
 To use PDFPyMerger, follow these steps:
@@ -50,7 +51,7 @@ Contributions are welcome! Please feel free to fork the repository and submit pu
 
 - Thank you to the PyQt5 team for providing an excellent GUI framework.
 
-- Special thanks to Mojtaba Karimi, Parvaneh Yaghoubi, and Hiva Yarandi for their contributions and collaboration on this project.
+- Special thanks to [@mojikarimi](https://github.com/mojikarimi), [@parvanehyaghoubi](https://github.com/parvanehyaghoubi), and [@Hivayrn](https://github.com/Hivayrn) for their contributions and collaboration on this project.
 
 ## Contact
 
