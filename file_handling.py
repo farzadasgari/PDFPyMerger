@@ -2,6 +2,10 @@ from PyQt5.QtWidgets import QFileDialog, QListWidgetItem
 
 
 def get_files(list_widget):
+    '''
+    This function opens a dialog that allows the users to select their files, 
+    so these files can be added to the left list of the program.
+    '''
     filedialog = QFileDialog()
     filedialog.setFileMode(QFileDialog.ExistingFiles)
     files = filedialog.getOpenFileNames(
@@ -16,5 +20,8 @@ def append_files(files, list_widget):
 
 
 def delete_file(list_widget):
+    '''
+    Using this function, the selected files are deleted from the list. 
+    '''
     file = list_widget.currentRow()
     list_widget.takeItem(file)

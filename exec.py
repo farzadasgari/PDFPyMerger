@@ -4,7 +4,9 @@ from PyQt5.QtWidgets import QFileDialog
 
 
 def merger(parent):
-    # Execute the Actions
+    '''
+    This function is used to combine PDFs.
+    '''
     files = []
     for file in range(parent.PDFList.count()):
         files.append(parent.PDFList.item(file).text())
@@ -34,6 +36,10 @@ def merger(parent):
 
 
 def save_merged_file(parent):
+    '''
+    This function opens a dialog.
+    The user can use it to determine where the new file should be saved.
+    '''
     filedialog = QFileDialog()
     filedialog.setFileMode(QFileDialog.ExistingFiles)
     filepath, _ = QFileDialog.getSaveFileName(parent, "Save Merged File",

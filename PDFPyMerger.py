@@ -4,6 +4,9 @@ import sys
 
 
 def main():
+    '''
+    Execute PDFPyMerger
+    '''
     app = QApplication(sys.argv)
     window = PyPDFMerger()
     window.show()
