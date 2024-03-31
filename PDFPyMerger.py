@@ -39,7 +39,7 @@ class Merger(QMainWindow, gui):
         filedialog = QFileDialog()
         filedialog.setFileMode(QFileDialog.ExistingFiles)
         files = filedialog.getOpenFileNames(
-            self, "Open PDF Files", "", "PDF Files (*.pdf);;Images (*.png *.jpg *.jpeg)"
+            self, "Open PDF Files", "", "PDF Files (*.pdf);;Images (*.png *.jpg *.jpeg);; All Files(*)"
         )
         self.append_files(files[0])
 
@@ -83,18 +83,30 @@ class Merger(QMainWindow, gui):
                 merge.append(file)
                 self.progressBar.setValue(round((i + 1) * (100 / len(files))))
             self.progressBar.setValue(100)
-            merge.write("MyPath3445.pdf")
-            merge.close()
-            password = self.passwordInput.text()
-            if len(password) != 0:
-                reader = PdfReader("MyPath3445.pdf")
-                writer = PdfWriter()
-                for page in reader.pages:
-                    writer.add_page(page)
-                writer.encrypt(password)
-                writer.write("MyPath3445.pdf")
-        else:
-            print("I am Error")
+            path = self.save_merged_file()
+            if not path == "":
+                if not path.lower().endswith('.pdf'):
+                    path += path + '.pdf'
+                merge.write(path)
+                merge.close()
+                password = self.passwordInput.text()
+                if len(password) != 0:
+                    reader = PdfReader(path)
+                    writer = PdfWriter()
+                    for page in reader.pages:
+                        writer.add_page(page)
+                    writer.encrypt(password)
+                    writer.write(path)
+                from subprocess import Popen
+                Popen(path, shell=True)
+
+    def save_merged_file(self):
+        filedialog = QFileDialog()
+        filedialog.setFileMode(QFileDialog.ExistingFiles)
+        filepath, _ = QFileDialog.getSaveFileName(self, "Save Merged File",
+                                                  "PDFPyMerger.pdf"
+                                                  , "PDF Files (*.pdf)")
+        return filepath
 
 
 class Info(QDialog):
