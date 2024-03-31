@@ -134,6 +134,12 @@
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
+             <property name="toolTip">
+              <string>Move File Down in List</string>
+             </property>
+             <property name="statusTip">
+              <string>Move File Down in List</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -153,6 +159,12 @@
             <widget class="QPushButton" name="upPDFButton">
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="toolTip">
+              <string>Move File Up in List</string>
+             </property>
+             <property name="statusTip">
+              <string>Move File Up in List</string>
              </property>
              <property name="text">
               <string/>
@@ -232,7 +244,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <spacer name="verticalSpacer">
+        <spacer name="verticalSpacerRightFrameTop">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -350,9 +362,12 @@
         </layout>
        </item>
        <item>
-        <spacer name="verticalSpacerRightFrame">
+        <spacer name="verticalSpacerRightFrameBottom">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Expanding</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -361,6 +376,92 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayoutProgress">
+         <property name="spacing">
+          <number>30</number>
+         </property>
+         <item>
+          <widget class="QProgressBar" name="progressBar">
+           <property name="minimumSize">
+            <size>
+             <width>265</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>265</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="value">
+            <number>75</number>
+           </property>
+           <property name="textVisible">
+            <bool>false</bool>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="invertedAppearance">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ExecuteButton">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>  Execute</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>Icons/execute.png</normaloff>Icons/execute.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -461,6 +562,22 @@
     <hint type="destinationlabel">
      <x>737</x>
      <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ExecuteButton</sender>
+   <signal>clicked()</signal>
+   <receiver>progressBar</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>741</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>537</x>
+     <y>541</y>
     </hint>
    </hints>
   </connection>

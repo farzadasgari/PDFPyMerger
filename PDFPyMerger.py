@@ -17,9 +17,9 @@ class Merger(QMainWindow, gui):
         QMainWindow.__init__(self)
         self.setupUi(self)
         self.hidePasswordButton.hide()
+        self.progressBar.hide()
         self.actions_triggered()
         self.buttons_clicked()
-        self.drag_files()
 
     def buttons_clicked(self):
         self.addPDFButton.clicked.connect(self.get_files)
