@@ -4,8 +4,9 @@ from PyQt5.QtWidgets import *
 import sys
 from PyQt5.uic import loadUiType, loadUi
 from time import sleep
+from PyPDF2 import PdfMerger, PdfWriter, PdfReader
 
-gui, _ = loadUiType('gui.ui')
+gui, _ = loadUiType("gui.ui")
 
 
 def info_btn_clicked():
@@ -37,7 +38,9 @@ class Merger(QMainWindow, gui):
     def get_files(self):
         filedialog = QFileDialog()
         filedialog.setFileMode(QFileDialog.ExistingFiles)
-        files = filedialog.getOpenFileNames(self, "Open PDF Files", "", "PDF Files (*.pdf)")
+        files = filedialog.getOpenFileNames(
+            self, "Open PDF Files", "", "PDF Files (*.pdf)"
+        )
         self.append_files(files[0])
 
     def append_files(self, files):
@@ -69,26 +72,35 @@ class Merger(QMainWindow, gui):
         self.PDFList.setCurrentRow(target)
 
     def execute(self):
-        # Get All PDF Files of List
+        # Execute the Actions
         files = []
         for file in range(self.PDFList.count()):
             files.append(self.PDFList.item(file).text())
-
-        # Get Password
-        password = self.passwordInput.text()
-        if len(password) != 0:
-            # Set the Password
-            pass
-
-        for i in range(101):
-            sleep(0.005)
-            self.progressBar.setValue(i)
+        if files:
+            merge = PdfMerger()
+            for i, file in enumerate(files):
+                sleep(0.005)
+                merge.append(file)
+                self.progressBar.setValue(round((i + 1) * (100 / len(files))))
+            self.progressBar.setValue(100)
+            merge.write("MyPath3445.pdf")
+            merge.close()
+            password = self.passwordInput.text()
+            if len(password) != 0:
+                reader = PdfReader("MyPath3445.pdf")
+                writer = PdfWriter()
+                for page in reader.pages:
+                    writer.add_page(page)
+                writer.encrypt(password)
+                writer.write("MyPath3445.pdf")
+        else:
+            print("I am Error")
 
 
 class Info(QDialog):
     def __init__(self):
         super(Info, self).__init__()
-        loadUi('info.ui', self)
+        loadUi("info.ui", self)
 
 
 def main():
@@ -98,5 +110,5 @@ def main():
     app.exec_()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
