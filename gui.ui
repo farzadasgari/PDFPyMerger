@@ -55,7 +55,7 @@
        <item>
         <layout class="QVBoxLayout" name="listLayout">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayoutListButtons">
+          <layout class="QHBoxLayout" name="listButtonsHorizontalLayout">
            <item>
             <widget class="QPushButton" name="addPDFButton">
              <property name="font">
@@ -182,7 +182,7 @@
             </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer">
+            <spacer name="PDFListButtonshorizontalSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -378,7 +378,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayoutProgress">
+        <layout class="QHBoxLayout" name="progressHorizontalLayout">
          <property name="spacing">
           <number>30</number>
          </property>
@@ -411,7 +411,7 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_2">
+          <spacer name="progressHorizontalSpace">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
