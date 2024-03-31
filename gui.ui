@@ -397,7 +397,7 @@
             </size>
            </property>
            <property name="value">
-            <number>75</number>
+            <number>0</number>
            </property>
            <property name="textVisible">
             <bool>false</bool>
