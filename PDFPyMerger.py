@@ -1,10 +1,10 @@
 from PyQt5.QtWidgets import QApplication
 from main_application import PyPDFMerger
-import sys
+from sys import argv
 
 
 def main():
-    app = QApplication(sys.argv)
+    app = QApplication(argv)
     window = PyPDFMerger()
     window.show()
     app.exec_()

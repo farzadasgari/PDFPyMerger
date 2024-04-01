@@ -55,3 +55,4 @@ venv
 *.pdf
 
 Icons/Logo.psd
+__pycache__

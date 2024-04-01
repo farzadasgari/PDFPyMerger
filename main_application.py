@@ -13,10 +13,15 @@ class PyPDFMerger(QMainWindow, gui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
-        self.hidePasswordButton.hide()
-        self.progressBar.hide()
+        self.initializing()
         self.actions_triggered()
         self.buttons_clicked()
+        self.tabs_change()
+
+    def initializing(self):
+        self.tabWidget.tabBar().setVisible(False)
+        self.hidePasswordButton.hide()
+        self.progressBar.hide()
 
     def buttons_clicked(self):
         self.addPDFButton.clicked.connect(lambda: get_files(self.PDFList))
@@ -29,3 +34,7 @@ class PyPDFMerger(QMainWindow, gui):
 
     def actions_triggered(self):
         self.actionInfo.triggered.connect(info_btn_clicked)
+
+    def tabs_change(self):
+        self.actionMerger.triggered.connect(lambda e: self.tabWidget.setCurrentIndex(0))
+        self.actionSpeech.triggered.connect(lambda e: self.tabWidget.setCurrentIndex(1))
