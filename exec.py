@@ -68,6 +68,8 @@ def merger(parent):
             # Open the merged PDF file with the default PDF viewer
             from subprocess import Popen
             Popen(path, shell=True)
+        parent.progressBar.setValue(0)
+        parent.progressBar.hide()
 
 
 def save_merged_file(parent):
