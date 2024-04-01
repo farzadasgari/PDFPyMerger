@@ -37,3 +37,21 @@ def delete_file(list_widget):
     """
     file = list_widget.currentRow()
     list_widget.takeItem(file)
+
+
+def get_file(text_browser):
+    """
+    Open a dialog to allow users to select files and add it for Text to Speech Process.
+
+    Parameters:
+        text_browser (QTextBrowser): The QTextBrowser which shows the extracted lines of selected PDF file.
+    """
+    filedialog = QFileDialog()
+    filedialog.setFileMode(QFileDialog.ExistingFiles)
+    file = filedialog.getOpenFileName(
+        None, "Open PDF File", "", "PDF Files (*.pdf);; All Files(*)"
+    )
+    print(f'''
+    file: {file}
+    ''')
+    # Add File Text to self.textToSpeechBrowser

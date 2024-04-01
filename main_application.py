@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.uic import loadUiType
-from file_handling import get_files, delete_file
+from file_handling import get_files, delete_file, get_file
 from files_order import move_file_up, move_file_down
 from encrypt import hide_or_show_password
-from exec import merger
+from exec import merger, speech
 from info_dialog import info_btn_clicked
 
 # Load Graphical User Interface from GUI file
@@ -22,6 +22,7 @@ class PyPDFMerger(QMainWindow, gui):
         buttons_clicked: Connect button click events to corresponding functions.
         actions_triggered: Connect menu actions to corresponding functions.
     """
+
     def __init__(self):
         """
         Initialize the PyPDFMerger window and connect signals to slots.
@@ -49,6 +50,8 @@ class PyPDFMerger(QMainWindow, gui):
         self.upPDFButton.clicked.connect(lambda: move_file_up(self.PDFList))
         self.downPDFButton.clicked.connect(lambda: move_file_down(self.PDFList))
         self.executeButton.clicked.connect(lambda: merger(self))
+        self.speechOpenFileButton.clicked.connect(lambda: get_file(self.textToSpeechBrowser))
+        self.speechReadButton.clicked.connect(lambda: speech(self))
 
     def actions_triggered(self):
         """
@@ -57,5 +60,8 @@ class PyPDFMerger(QMainWindow, gui):
         self.actionInfo.triggered.connect(info_btn_clicked)
 
     def tabs_change(self):
+        """
+        Changes the hiddent tabs page.
+        """
         self.actionMerger.triggered.connect(lambda e: self.tabWidget.setCurrentIndex(0))
         self.actionSpeech.triggered.connect(lambda e: self.tabWidget.setCurrentIndex(1))

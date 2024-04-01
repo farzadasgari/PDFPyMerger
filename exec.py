@@ -71,3 +71,8 @@ def save_merged_file(parent):
                                               "PDFPyMerger.pdf"
                                               , "PDF Files (*.pdf)")
     return filepath
+
+
+def speech(parent):
+    # Text to Speech function will come here
+    pass
