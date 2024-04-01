@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QDialog, QApplication
+from PyQt5.QtWidgets import QDialog
 from PyQt5.uic import loadUi
 
 class Info(QDialog):
