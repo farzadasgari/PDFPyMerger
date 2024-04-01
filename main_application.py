@@ -6,11 +6,26 @@ from encrypt import hide_or_show_password
 from exec import merger
 from info_dialog import info_btn_clicked
 
+# Load Graphical User Interface from GUI file
 gui, _ = loadUiType("gui.ui")
 
 
 class PyPDFMerger(QMainWindow, gui):
+    """
+    Main application window for PDFPyMerger.
+
+    Attributes:
+        Inherits from QMainWindow and gui (loaded UI type).
+
+    Methods:
+        __init__: Initialize the PyPDFMerger window and connect signals to slots.
+        buttons_clicked: Connect button click events to corresponding functions.
+        actions_triggered: Connect menu actions to corresponding functions.
+    """
     def __init__(self):
+        """
+        Initialize the PyPDFMerger window and connect signals to slots.
+        """
         QMainWindow.__init__(self)
         self.setupUi(self)
         self.initializing()
@@ -24,6 +39,9 @@ class PyPDFMerger(QMainWindow, gui):
         self.progressBar.hide()
 
     def buttons_clicked(self):
+        """
+        Connect button click events to corresponding functions.
+        """
         self.addPDFButton.clicked.connect(lambda: get_files(self.PDFList))
         self.deletePDFButton.clicked.connect(lambda: delete_file(self.PDFList))
         self.hidePasswordButton.clicked.connect(lambda: hide_or_show_password(self.passwordInput))
@@ -33,6 +51,9 @@ class PyPDFMerger(QMainWindow, gui):
         self.executeButton.clicked.connect(lambda: merger(self))
 
     def actions_triggered(self):
+        """
+        Connect menu actions to corresponding functions.
+        """
         self.actionInfo.triggered.connect(info_btn_clicked)
 
     def tabs_change(self):
