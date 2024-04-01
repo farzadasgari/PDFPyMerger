@@ -602,7 +602,10 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuHelp">
+    <property name="statusTip">
+     <string>About PyPDFMerger</string>
+    </property>
     <property name="title">
      <string>Help</string>
     </property>
@@ -611,6 +614,9 @@
     <addaction name="actionInfo"/>
    </widget>
    <widget class="QMenu" name="menuProcess">
+    <property name="statusTip">
+     <string>All PDFPyMerger Processess</string>
+    </property>
     <property name="title">
      <string>Process</string>
     </property>
@@ -618,7 +624,7 @@
     <addaction name="actionSpeech"/>
    </widget>
    <addaction name="menuProcess"/>
-   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAdd">
@@ -630,15 +636,24 @@
    <property name="text">
     <string>Info</string>
    </property>
+   <property name="statusTip">
+    <string>PyPDFMerger Information</string>
+   </property>
   </action>
   <action name="actionMerger">
    <property name="text">
     <string>Merger</string>
    </property>
+   <property name="statusTip">
+    <string>PDFPyMerger To Merge PDF Files</string>
+   </property>
   </action>
   <action name="actionSpeech">
    <property name="text">
     <string>Speech</string>
+   </property>
+   <property name="statusTip">
+    <string>Text To Speech A PDF File</string>
    </property>
   </action>
  </widget>
