@@ -13,7 +13,11 @@ def get_files(list_widget):
     files = filedialog.getOpenFileNames(
         None, "Open PDF Files", "", "PDF Files (*.pdf);;Images (*.png *.jpg *.jpeg);; All Files(*)"
     )
-    append_files(files[0], list_widget)
+    if files[0]:
+        if not files[0][0].lower().endswith(('.pdf', '.png', '.jpg', '.jpeg')):
+            print('This format not available!')
+        else:
+            append_files(files[0], list_widget)
 
 
 def append_files(files, list_widget):
