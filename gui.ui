@@ -60,7 +60,7 @@
       <property name="tabBarAutoHide">
        <bool>false</bool>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="mergeTab">
        <attribute name="title">
         <string>Merger</string>
        </attribute>
@@ -260,7 +260,7 @@
          <widget class="QFrame" name="rightFrame">
           <property name="minimumSize">
            <size>
-            <width>390</width>
+            <width>380</width>
             <height>0</height>
            </size>
           </property>
@@ -414,7 +414,7 @@
               <widget class="QProgressBar" name="progressBar">
                <property name="minimumSize">
                 <size>
-                 <width>265</width>
+                 <width>250</width>
                  <height>35</height>
                 </size>
                </property>
@@ -496,10 +496,98 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="speechTab">
        <attribute name="title">
         <string>Speech</string>
        </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QPushButton" name="speechOpenFileButton">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Open PDF</string>
+            </property>
+            <property name="statusTip">
+             <string>Open PDF File for Speech</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>Icons/open.png</normaloff>Icons/open.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="speechReadButton">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Speech</string>
+            </property>
+            <property name="statusTip">
+             <string>Text to Speech</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>Icons/speech.png</normaloff>Icons/speech.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QTextBrowser" name="textToSpeechBrowser">
+            <property name="statusTip">
+             <string>Opened PDF File for Speech</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
