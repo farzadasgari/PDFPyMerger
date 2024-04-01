@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.uic import loadUiType
 from file_handling import get_files, delete_file
-from files_order import move_file_up, move_file_down
+from selected_file import move_file_up, move_file_down
 from encrypt import hide_or_show_password
 from exec import merger
 from info_dialog import info_btn_clicked
