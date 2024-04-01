@@ -39,7 +39,7 @@ def merger(parent):
                 image.close()
                 image_pdf.close()
                 merge.append(f'{file}.pdf')
-                photo_list.append(f'{file}.pdf')
+                photo_list.append(f'{file}.pdf') if f'{file}.pdf' not in photo_list else None
             else:
                 merge.append(file)
             # Update progress bar
