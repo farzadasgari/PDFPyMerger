@@ -1,6 +1,9 @@
 from time import sleep
 from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 from PyQt5.QtWidgets import QFileDialog
+import img2pdf
+from PIL import Image
+import os
 
 
 def merger(parent):
@@ -24,9 +27,21 @@ def merger(parent):
     if files:
         merge = PdfMerger()
         # Merge PDF files one by one
+        photo_list = []
         for i, file in enumerate(files):
             sleep(0.005)  # Add a small delay for better user experience
-            merge.append(file)
+            if file.lower().endswith(('.png', '.jpg', '.jpeg')):
+                image = Image.open(file)
+                pdf_bytes = img2pdf.convert(image.filename)
+                image_pdf = open(f'{file}.pdf', "wb")
+                image_pdf.write(pdf_bytes)
+                image_pdf.write(pdf_bytes)
+                image.close()
+                image_pdf.close()
+                merge.append(f'{file}.pdf')
+                photo_list.append(f'{file}.pdf')
+            else:
+                merge.append(file)
             # Update progress bar
             parent.progressBar.setValue(round((i + 1) * (100 / len(files))))
         parent.progressBar.setValue(100)
@@ -39,7 +54,7 @@ def merger(parent):
                 path += path + '.pdf'
             merge.write(path)  # Write the merged PDF to the specified path
             merge.close()  # Close the merger
-
+            [os.remove(path) for path in photo_list if photo_list]
             # If a password is provided, encrypt the PDF file
             password = parent.passwordInput.text()
             if len(password) != 0:
