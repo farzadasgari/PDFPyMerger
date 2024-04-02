@@ -64,7 +64,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://choos
 
 - Thank you to the PyQt5 team for providing an excellent GUI framework.
 
-- Special thanks to [@mojikarimi](https://github.com/mojikarimi), [@parvanehyaghoubi](https://github.com/parvanehyaghoubi), and [@Hivayrn](https://github.com/Hivayrn) for their contributions and collaboration on this project.
+- Special thanks to [@mojikarimi](https://github.com/mojikarimi), [@parvanehyaghoubi](https://github.com/parvanehyaghoubi), [@Hivayrn](https://github.com/Hivayrn), and [@SobhanVaziri](https://github.com/SobhanVaziri) for their contributions and collaboration on this project.
 
 ## Contact
 

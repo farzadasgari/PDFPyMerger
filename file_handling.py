@@ -11,7 +11,7 @@ def get_files(list_widget):
     filedialog = QFileDialog()
     filedialog.setFileMode(QFileDialog.ExistingFiles)
     files = filedialog.getOpenFileNames(
-        None, "Open PDF Files", "", "PDF Files (*.pdf);;Images (*.png *.jpg *.jpeg);; All Files(*)"
+        None, "Open Files", "", "PDF Files (*.pdf);;Images (*.png *.jpg *.jpeg);; All Files(*)"
     )
     if files[0]:
         if not files[0][0].lower().endswith(('.pdf', '.png', '.jpg', '.jpeg')):
@@ -55,7 +55,7 @@ def get_file(text_browser):
     file = filedialog.getOpenFileName(
         None, "Open PDF File", "", "PDF Files (*.pdf);; All Files(*)"
     )
-    
+    text_browser.clear()
     for line in get_pdf_lines(file[0]):
         text_browser.append(line)
 
