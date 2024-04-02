@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QFileDialog
 import img2pdf
 from PIL import Image
 import os
-
+import pyttsx3
 
 def merger(parent):
     """
@@ -89,5 +89,23 @@ def save_merged_file(parent):
 
 
 def speech(parent):
-    # Text to Speech function will come here
-    pass
+    """
+    Convert PDF files to speech using pyttsx3 library.
+
+    Parameters:
+        parent (QWidget): The parent widget (main window) of the application.
+    """
+    files = []
+    for file in range(parent.PDFList.count()):
+        files.append(parent.PDFList.item(file).text())
+
+    if files:
+        engine = pyttsx3.init()
+        for file in files:
+            with open(file, 'rb') as f:
+                pdf_reader = PdfReader(f)
+                for page in pdf_reader.pages:
+                    text = page.extract_text()
+                    if text:
+                        engine.say(text)
+                        engine.runAndWait()
