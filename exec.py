@@ -5,6 +5,7 @@ import img2pdf
 from PIL import Image
 import os
 
+
 def merger(parent):
     """
     Merge PDF files selected by the user in the parent GUI window.
@@ -97,14 +98,34 @@ def save_merged_file(parent):
 
 def speech(parent):
     """
-    Convert PDF files to speech using pyttsx3 library.
+    Convert text to speech using pyttsx3 library.
+
+    Description:
+        The Function Takes the text content from the specified QTextBrowser widget
+        (parent.textToSpeechBrowser) and converts it to speech using the pyttsx3 library.
 
     Parameters:
-        parent (QWidget): The parent widget (main window) of the application.
+        parent (QWidget): The parent widget (main window) of the application,
+        from which the QTextBrowser widget containing the text to be converted
+        to speech is accessed.
+
+    Raises:
+        RuntimeError: If no text content is found in the QTextBrowser widget.
+        Exception: Any exception raised during the text-to-speech conversion process.
     """
     from pyttsx3 import init
+
+    # Initialize the text-to-speech engine
     engine = init()
+
+    # Retrieve the text content from the specified QTextBrowser widget
     text = parent.textToSpeechBrowser.toPlainText()
+
+    # Check if text content is available
     if text:
+        # Convert text to speech
         engine.say(text)
         engine.runAndWait()
+    else:
+        # Raise an exception if no text content is found
+        raise RuntimeError("No text content found in the QTextBrowser widget.")
