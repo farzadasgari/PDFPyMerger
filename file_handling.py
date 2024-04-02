@@ -55,7 +55,15 @@ def get_file(text_browser):
     file = filedialog.getOpenFileName(
         None, "Open PDF File", "", "PDF Files (*.pdf);; All Files(*)"
     )
-    print(f'''
-    file: {file}
-    ''')
-    # Add File Text to self.textToSpeechBrowser
+    
+    for line in get_pdf_lines(file[0]):
+        text_browser.append(line)
+
+
+def get_pdf_lines(path):
+    from PyPDF2 import PdfReader
+    with open(path, 'rb') as f:
+        pdf_reader = PdfReader(f)
+        for page in pdf_reader.pages:
+            for line in page.extract_text().splitlines():
+                yield line        
