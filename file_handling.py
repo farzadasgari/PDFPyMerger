@@ -66,4 +66,4 @@ def get_pdf_lines(path):
         pdf_reader = PdfReader(f)
         for page in pdf_reader.pages:
             for line in page.extract_text().splitlines():
-                yield line        
+                yield line

@@ -6,6 +6,12 @@
 
 PDFPyMerger is a Python application designed to merge multiple PDF files into a single document with a user-friendly GUI built using PyQt5. It also provides the ability to protect the merged PDF file with a password.
 
+
+![GitHub repo size](https://img.shields.io/github/repo-size/farzadasgari/PDFPyMerger)
+![GitHub issues](https://img.shields.io/github/issues/farzadasgari/PDFPyMerger)
+![GitHub stars](https://img.shields.io/github/stars/farzadasgari/PDFPyMerger)
+![GitHub forks](https://img.shields.io/github/forks/farzadasgari/PDFPyMerger)
+
 ## Features
 
 - **Merge PDF Files:** Seamlessly combine multiple PDF documents into a single file.
@@ -63,6 +69,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://choos
 ## Contact
 
 For any inquiries or feedback, please contact std_farzad.asgari@alumni.khi.ac.ir or farzad.developer13@gmail.com.
+
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://farzadasgari.ir/)
 
@@ -70,8 +77,4 @@ For any inquiries or feedback, please contact std_farzad.asgari@alumni.khi.ac.ir
 
 [![ResearchGate Badge](https://img.shields.io/badge/ResearchGate-0CB?logo=researchgate&logoColor=fff&style=for-the-badge)](https://www.researchgate.net/profile/Farzad-Asgari)
 
-
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/farzad-asgari-5a90942b2/)
-
-
-
