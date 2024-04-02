@@ -61,9 +61,40 @@ def get_file(text_browser):
 
 
 def get_pdf_lines(path):
+    """
+    Extract text lines from a PDF file.
+
+    Description:
+        reads a PDF file located at the specified path and yields each line of text
+        extracted from the PDF pages using PyPDF2 library.
+
+    Parameters:
+        path (str): The file path to the PDF file to be processed.
+
+    Yields:
+        str: Each line of text extracted from the PDF file.
+
+    Raises:
+        FileNotFoundError: If the specified PDF file is not found.
+        Exception: Any exception raised during the PDF processing.
+    """
     from PyPDF2 import PdfReader
-    with open(path, 'rb') as f:
-        pdf_reader = PdfReader(f)
-        for page in pdf_reader.pages:
-            for line in page.extract_text().splitlines():
-                yield line
+
+    try:
+        # Open the PDF file in read-binary mode
+        with open(path, 'rb') as f:
+            # Create a PdfReader object to read the PDF file
+            pdf_reader = PdfReader(f)
+
+            # Iterate over each page in the PDF file
+            for page in pdf_reader.pages:
+                # Extract text from the current page and split it into lines
+                for line in page.extract_text().splitlines():
+                    # Yield each line of text
+                    yield line
+    except FileNotFoundError:
+        # Raise an exception if the specified PDF file is not found
+        raise FileNotFoundError("PDF file not found at the specified path: {}".format(path))
+    except Exception as e:
+        # Raise any other exceptions that occur during PDF processing
+        raise Exception("An error occurred during PDF processing: {}".format(str(e)))
