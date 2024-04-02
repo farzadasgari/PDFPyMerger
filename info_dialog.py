@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QDialog
 from PyQt5.uic import loadUi
 
-
 def info_btn_clicked():
     """
     Show the info box when the info action is clicked.

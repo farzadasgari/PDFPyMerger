@@ -91,8 +91,8 @@ def save_merged_file(parent):
     filedialog = QFileDialog()
     filedialog.setFileMode(QFileDialog.ExistingFiles)
     filepath, _ = QFileDialog.getSaveFileName(parent, "Save Merged File",
-                                              "PDFPyMerger.pdf"
-                                              , "PDF Files (*.pdf)")
+                                              "PDFPyMerger.pdf",
+                                              "PDF Files (*.pdf)")
     return filepath
 
 
