@@ -1,9 +1,11 @@
 from time import sleep
+import PyPDF2.errors
 from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 from PyQt5.QtWidgets import QFileDialog
 import img2pdf
 from PIL import Image
 import os
+
 
 def my_errors(parent, merge, photo_list):
     # For Debugging
@@ -11,6 +13,19 @@ def my_errors(parent, merge, photo_list):
     [os.remove(path) for path in photo_list if photo_list]
     parent.progressBar.setValue(0)
     parent.progressBar.hide()
+
+
+def my_meta(parent, writer):
+    # Add MetaData For Our PDF
+    writer.add_metadata(
+        {
+            "/Author": parent.authorInput.text(),
+            "/Producer": parent.producerInput.text(),
+            "/Creator": parent.creatorInput.text(),
+            "/Title": parent.titleInput.text(),
+            "/Subject": parent.subjectInput.text(),
+        }
+    )
 
 
 def merger(parent):
@@ -35,6 +50,7 @@ def merger(parent):
         merge = PdfMerger()
         # Merge PDF files one by one
         photo_list = []
+
         try:
             for i, file in enumerate(files):
                 sleep(0.005)  # Add a small delay for better user experience
@@ -52,7 +68,9 @@ def merger(parent):
                     merge.append(file)
                 # Update progress bar
                 parent.progressBar.setValue(round((i + 1) * (100 / len(files))))
+
             parent.progressBar.setValue(100)
+
         except PyPDF2.errors.FileNotDecryptedError:
             # If we encounter an encrypted file during processing, it will show us an error
             my_errors(parent, merge, photo_list)
@@ -63,12 +81,14 @@ def merger(parent):
             my_errors(parent, merge, photo_list)
             print('This is an Error!')
             return None
+
         # Save the merged PDF file
         path = save_merged_file(parent)
         if not path == "":
             # Ensure the file has a PDF extension
             if not path.lower().endswith('.pdf'):
                 path += path + '.pdf'
+            my_meta(parent, merge)
             merge.write(path)  # Write the merged PDF to the specified path
             merge.close()  # Close the merger
             [os.remove(path) for path in photo_list if photo_list]
@@ -80,14 +100,8 @@ def merger(parent):
                 for page in reader.pages:
                     writer.add_page(page)
                 writer.encrypt(password)
+                my_meta(parent, writer)
                 writer.write(path)
-
-            # Metadata
-            # parent.authorInput
-            # parent.creatorInput
-            # parent.titleInput
-            # parent.subjectInput
-            # parent.producerInput
 
             # Open the merged PDF file with the default PDF viewer
             from subprocess import Popen
