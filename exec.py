@@ -1,6 +1,4 @@
-import mimetypes
 from time import sleep
-
 import PyPDF2.errors
 from PyPDF2 import PdfMerger, PdfReader, PdfWriter
 from PyQt5.QtWidgets import QFileDialog
