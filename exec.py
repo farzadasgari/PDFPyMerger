@@ -5,6 +5,13 @@ import img2pdf
 from PIL import Image
 import os
 
+def my_errors(parent, merge, photo_list):
+    # For Debugging
+    merge.close()
+    [os.remove(path) for path in photo_list if photo_list]
+    parent.progressBar.setValue(0)
+    parent.progressBar.hide()
+
 
 def merger(parent):
     """
@@ -46,11 +53,15 @@ def merger(parent):
                 # Update progress bar
                 parent.progressBar.setValue(round((i + 1) * (100 / len(files))))
             parent.progressBar.setValue(100)
-        except:
-            merge.close()
-            [os.remove(path) for path in photo_list if photo_list]
-            parent.progressBar.setValue(0)
-            parent.progressBar.hide()
+        except PyPDF2.errors.FileNotDecryptedError:
+            # If we encounter an encrypted file during processing, it will show us an error
+            my_errors(parent, merge, photo_list)
+            print('There are Decrypted Files!')
+            return None
+        except Exception:
+            # Raise any other exceptions that occur during PDF processing
+            my_errors(parent, merge, photo_list)
+            print('This is an Error!')
             return None
         # Save the merged PDF file
         path = save_merged_file(parent)
