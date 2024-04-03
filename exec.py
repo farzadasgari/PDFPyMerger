@@ -71,6 +71,13 @@ def merger(parent):
                 writer.encrypt(password)
                 writer.write(path)
 
+            # Metadata
+            # parent.authorInput
+            # parent.creatorInput
+            # parent.titleInput
+            # parent.subjectInput
+            # parent.producerInput
+
             # Open the merged PDF file with the default PDF viewer
             from subprocess import Popen
             Popen(path, shell=True)
