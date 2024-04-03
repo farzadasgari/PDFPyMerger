@@ -58,7 +58,7 @@ To use PDFPyMerger, follow these steps:
 Contributions are welcome! Please feel free to fork the repository and submit pull requests to suggest improvements or additional features.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://choosealicense.com/licenses/mit/) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/farzadasgari/PDFPyMerger/blob/main/LICENSE) file for details.
 
 ## Acknowledgements
 
