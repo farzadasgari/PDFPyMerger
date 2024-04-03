@@ -422,7 +422,7 @@
               <string>Set Author Metadata for your Merged PDF (Optional)</string>
              </property>
              <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
+              <enum>QLineEdit::Normal</enum>
              </property>
             </widget>
            </item>
@@ -459,7 +459,7 @@
               <string>Set Creator Metadata for your Merged PDF (Optional)</string>
              </property>
              <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
+              <enum>QLineEdit::Normal</enum>
              </property>
             </widget>
            </item>
@@ -496,7 +496,7 @@
               <string>Set Title Metadata for your Merged PDF (Optional)</string>
              </property>
              <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
+              <enum>QLineEdit::Normal</enum>
              </property>
             </widget>
            </item>
@@ -533,7 +533,7 @@
               <string>Set Subject Metadata for your Merged PDF (Optional)</string>
              </property>
              <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
+              <enum>QLineEdit::Normal</enum>
              </property>
             </widget>
            </item>
@@ -570,7 +570,7 @@
               <string>Set Producer Metadata for your Merged PDF (Optional)</string>
              </property>
              <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
+              <enum>QLineEdit::Normal</enum>
              </property>
             </widget>
            </item>
