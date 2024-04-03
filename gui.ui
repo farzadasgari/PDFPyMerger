@@ -794,8 +794,6 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAdd"/>
-    <addaction name="separator"/>
     <addaction name="actionInfo"/>
    </widget>
    <widget class="QMenu" name="menuProcess">
