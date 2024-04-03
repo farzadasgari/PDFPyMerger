@@ -443,7 +443,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="passwordInput_7">
+            <widget class="QLineEdit" name="creatorInput">
              <property name="font">
               <font>
                <pointsize>11</pointsize>
@@ -480,7 +480,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="passwordInput_3">
+            <widget class="QLineEdit" name="titleInput">
              <property name="font">
               <font>
                <pointsize>11</pointsize>
@@ -517,7 +517,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="passwordInput_5">
+            <widget class="QLineEdit" name="subjectInput">
              <property name="font">
               <font>
                <pointsize>11</pointsize>
@@ -554,7 +554,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="passwordInput_4">
+            <widget class="QLineEdit" name="producerInput">
              <property name="font">
               <font>
                <pointsize>11</pointsize>
