@@ -96,10 +96,10 @@
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="toolTip">
-                  <string>Add  PDF File To Merge List</string>
+                  <string>Add Files</string>
                  </property>
                  <property name="statusTip">
-                  <string>Add  PDF File To Merge List</string>
+                  <string>Add PDF or Image Files To Merge List</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -128,10 +128,10 @@
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="toolTip">
-                  <string>Delete PDF File From Merge List</string>
+                  <string>Delete File</string>
                  </property>
                  <property name="statusTip">
-                  <string>Delete PDF File From Merge List</string>
+                  <string>Delete File From Merge List</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -163,7 +163,7 @@
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="toolTip">
-                  <string>Move File Down in List</string>
+                  <string>Move Down</string>
                  </property>
                  <property name="statusTip">
                   <string>Move File Down in List</string>
@@ -189,7 +189,7 @@
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="toolTip">
-                  <string>Move File Up in List</string>
+                  <string>Move Up</string>
                  </property>
                  <property name="statusTip">
                   <string>Move File Up in List</string>
@@ -316,7 +316,7 @@
                 <enum>Qt::StrongFocus</enum>
                </property>
                <property name="toolTip">
-                <string>Set Password to Protect You Merged PDF (Optional)</string>
+                <string>Set Password</string>
                </property>
                <property name="statusTip">
                 <string>Set Password to Protect You Merged PDF (Optional)</string>
@@ -390,17 +390,202 @@
             </layout>
            </item>
            <item>
-            <spacer name="verticalSpacerRightFrameBottom">
+            <widget class="QLabel" name="authorLabel">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="statusTip">
+              <string>Set Author (Optional)</string>
+             </property>
+             <property name="text">
+              <string>Author (Optional):</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="authorInput">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
+             <property name="toolTip">
+              <string>Set Author</string>
+             </property>
+             <property name="statusTip">
+              <string>Set Author Metadata for your Merged PDF (Optional)</string>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="creatorLabel">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="statusTip">
+              <string>Set Creator (Optional)</string>
+             </property>
+             <property name="text">
+              <string>Creator (Optional):</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="creatorInput">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
+             <property name="toolTip">
+              <string>Set Creator</string>
+             </property>
+             <property name="statusTip">
+              <string>Set Creator Metadata for your Merged PDF (Optional)</string>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="titleLabel">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="statusTip">
+              <string>Set Title (Optional)</string>
+             </property>
+             <property name="text">
+              <string>Title (Optional):</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="titleInput">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
+             <property name="toolTip">
+              <string>Set Title</string>
+             </property>
+             <property name="statusTip">
+              <string>Set Title Metadata for your Merged PDF (Optional)</string>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="subjectLabel">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="statusTip">
+              <string>Set Subject (Optional)</string>
+             </property>
+             <property name="text">
+              <string>Subject (Optional):</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="subjectInput">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
+             <property name="toolTip">
+              <string>Set Subject</string>
+             </property>
+             <property name="statusTip">
+              <string>Set Subject Metadata for your Merged PDF (Optional)</string>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="producerLabel">
+             <property name="font">
+              <font>
+               <pointsize>8</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="statusTip">
+              <string>Set Producer (Optional)</string>
+             </property>
+             <property name="text">
+              <string>Producer (Optional):</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="producerInput">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
+             <property name="toolTip">
+              <string>Set Producer</string>
+             </property>
+             <property name="statusTip">
+              <string>Set Producer Metadata for your Merged PDF (Optional)</string>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacerRightFrameTop_2">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
              <property name="sizeType">
-              <enum>QSizePolicy::Expanding</enum>
+              <enum>QSizePolicy::Maximum</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
-               <height>40</height>
+               <height>30</height>
               </size>
              </property>
             </spacer>
@@ -609,8 +794,6 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAdd"/>
-    <addaction name="separator"/>
     <addaction name="actionInfo"/>
    </widget>
    <widget class="QMenu" name="menuProcess">
