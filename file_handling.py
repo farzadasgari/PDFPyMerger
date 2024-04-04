@@ -56,8 +56,9 @@ def get_file(text_browser):
         None, "Open PDF File", "", "PDF Files (*.pdf);; All Files(*)"
     )
     text_browser.clear()
-    for line in get_pdf_lines(file[0]):
-        text_browser.append(line)
+    if file[0].lower().endswith('.pdf'):
+        for line in get_pdf_lines(file[0]):
+            text_browser.append(line)
 
 
 def get_pdf_lines(path):
