@@ -45,6 +45,9 @@ def merger(parent):
     for file in range(parent.PDFList.count()):
         files.append(parent.PDFList.item(file).text())
 
+    if not files:
+        parent.progressBar.hide()
+
     # If there are selected files
     if files:
         merge = PdfMerger()

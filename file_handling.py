@@ -15,7 +15,7 @@ def get_files(list_widget):
     )
     if files[0]:
         if not files[0][0].lower().endswith(('.pdf', '.png', '.jpg', '.jpeg')):
-            print('This format not available!')
+            print('This format is not available!')
         else:
             append_files(files[0], list_widget)
 
