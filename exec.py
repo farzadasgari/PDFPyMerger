@@ -161,3 +161,6 @@ def speech(parent):
     else:
         # Raise an exception if no text content is found
         raise RuntimeError("No text content found in the QTextBrowser widget.")
+
+
+
