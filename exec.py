@@ -30,7 +30,13 @@ def add_metadata(parent, writer):
             "/Subject": parent.subjectInput.text(),
         }
     )
-
+def image_to_pdf(file_path):
+    image = Image.open(file_path)
+    pdf_bytes = img2pdf.convert(image.filename)
+    image_pdf = open(f'{file_path}.pdf', "wb")
+    image_pdf.write(pdf_bytes)
+    image.close()
+    image_pdf.close()
 
 def merger(parent):
     """
@@ -59,13 +65,7 @@ def merger(parent):
             for i, file in enumerate(files):
                 sleep(0.005)  # Add a small delay for better user experience
                 if file.lower().endswith(('.png', '.jpg', '.jpeg')):
-                    image = Image.open(file)
-                    pdf_bytes = img2pdf.convert(image.filename)
-                    image_pdf = open(f'{file}.pdf', "wb")
-                    image_pdf.write(pdf_bytes)
-                    image_pdf.write(pdf_bytes)
-                    image.close()
-                    image_pdf.close()
+                    image_to_pdf(file)
                     merge.append(f'{file}.pdf')
                     photo_list.append(f'{file}.pdf') if f'{file}.pdf' not in photo_list else None
                 else:
