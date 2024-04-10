@@ -11,7 +11,7 @@ def remove_image(photo_list):
     [os.remove(path) for path in photo_list if photo_list]
 
 
-def my_errors(parent, merge, photo_list):
+def handling_errors(parent, merge, photo_list):
     # For Debugging
     merge.close()
     remove_image(photo_list)
@@ -19,7 +19,7 @@ def my_errors(parent, merge, photo_list):
     parent.progressBar.hide()
 
 
-def my_meta(parent, writer):
+def add_metadata(parent, writer):
     # Add MetaData For Our PDF
     writer.add_metadata(
         {
@@ -77,12 +77,12 @@ def merger(parent):
 
         except PyPDF2.errors.FileNotDecryptedError:
             # If we encounter an encrypted file during processing, it will show us an error
-            my_errors(parent, merge, photo_list)
+            handling_errors(parent, merge, photo_list)
             print('There are Decrypted Files!')
             return None
         except Exception:
             # Raise any other exceptions that occur during PDF processing
-            my_errors(parent, merge, photo_list)
+            handling_errors(parent, merge, photo_list)
             print('This is an Error!')
             return None
 
@@ -92,7 +92,7 @@ def merger(parent):
             # Ensure the file has a PDF extension
             if not path.lower().endswith('.pdf'):
                 path += path + '.pdf'
-            my_meta(parent, merge)
+            add_metadata(parent, merge)
             merge.write(path)  # Write the merged PDF to the specified path
             merge.close()  # Close the merger
             remove_image(photo_list)
@@ -104,7 +104,7 @@ def merger(parent):
                 for page in reader.pages:
                     writer.add_page(page)
                 writer.encrypt(password)
-                my_meta(parent, writer)
+                add_metadata(parent, writer)
                 writer.write(path)
 
             # Open the merged PDF file with the default PDF viewer
