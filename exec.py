@@ -7,10 +7,14 @@ from PIL import Image
 import os
 
 
+def remove_image(photo_list):
+    [os.remove(path) for path in photo_list if photo_list]
+
+
 def my_errors(parent, merge, photo_list):
     # For Debugging
     merge.close()
-    [os.remove(path) for path in photo_list if photo_list]
+    remove_image(photo_list)
     parent.progressBar.setValue(0)
     parent.progressBar.hide()
 
@@ -91,7 +95,7 @@ def merger(parent):
             my_meta(parent, merge)
             merge.write(path)  # Write the merged PDF to the specified path
             merge.close()  # Close the merger
-            [os.remove(path) for path in photo_list if photo_list]
+            remove_image(photo_list)
             # If a password is provided, encrypt the PDF file
             password = parent.passwordInput.text()
             if len(password) != 0:
