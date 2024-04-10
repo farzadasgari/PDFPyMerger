@@ -30,6 +30,8 @@ def add_metadata(parent, writer):
             "/Subject": parent.subjectInput.text(),
         }
     )
+
+
 def image_to_pdf(file_path):
     image = Image.open(file_path)
     pdf_bytes = img2pdf.convert(image.filename)
@@ -37,6 +39,17 @@ def image_to_pdf(file_path):
     image_pdf.write(pdf_bytes)
     image.close()
     image_pdf.close()
+
+
+def encrypt_file(parent, path, password):
+    reader = PdfReader(path)
+    writer = PdfWriter()
+    for page in reader.pages:
+        writer.add_page(page)
+    writer.encrypt(password)
+    add_metadata(parent, writer)
+    writer.write(path)
+
 
 def merger(parent):
     """
@@ -99,14 +112,7 @@ def merger(parent):
             # If a password is provided, encrypt the PDF file
             password = parent.passwordInput.text()
             if len(password) != 0:
-                reader = PdfReader(path)
-                writer = PdfWriter()
-                for page in reader.pages:
-                    writer.add_page(page)
-                writer.encrypt(password)
-                add_metadata(parent, writer)
-                writer.write(path)
-
+                encrypt_file(parent, path, password)
             # Open the merged PDF file with the default PDF viewer
             from subprocess import Popen
             Popen(path, shell=True)
